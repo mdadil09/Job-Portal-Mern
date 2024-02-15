@@ -1,16 +1,15 @@
 const JobApplication = require("../models/jobApplicationSchema");
 const UserInfo = require("../models/userInfo");
+const mongoose = require("mongoose");
 
 const applyJob = async (req, res) => {
   try {
     const {
       name,
       mobile,
-      profilePic,
       linkedLink,
       gitLink,
       address,
-      resume,
       branchName,
       courseName,
       highSchool,
@@ -29,14 +28,17 @@ const applyJob = async (req, res) => {
       jobEndDate,
     } = req.body;
 
+    const profilePicPath = req.file.path;
+    const resumePath = req.file.path;
+
     const newProfile = await UserInfo.create({
       name: name,
       mobile: mobile,
-      profilePic: profilePic,
+      profilePic: profilePicPath,
       linkedLink: linkedLink,
       gitLink: gitLink,
       address: address,
-      resume: resume,
+      resume: resumePath,
       branchName: branchName,
       courseName: courseName,
       highSchool: highSchool,
@@ -90,6 +92,15 @@ const appliedJobs = async (req, res) => {
 
 const getAppliedJobs = async (req, res) => {
   try {
+    const appliedUserId = req.user.id;
+    const appliedJobs = await JobApplication.find({
+      userId: appliedUserId,
+    }).populate({
+      path: "jobId",
+      model: "JobsData",
+    });
+
+    res.status(200).send(appliedJobs);
   } catch (error) {
     console.log(error.message);
   }
@@ -98,4 +109,5 @@ const getAppliedJobs = async (req, res) => {
 module.exports = {
   applyJob,
   appliedJobs,
+  getAppliedJobs,
 };

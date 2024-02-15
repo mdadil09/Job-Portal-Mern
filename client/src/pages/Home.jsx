@@ -1,20 +1,56 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/Headers/Navbar";
+import hero from "../assets/hero.png";
+import HomeCards from "../components/cards/HomeCards";
+import PositionCard from "../components/cards/PositionCard";
+import axios from "axios";
 
 const Home = () => {
+  const [jobs, setJobs] = useState([]);
+
+  console.log(jobs);
+
+  const fetchJobs = async () => {
+    try {
+      const result = await axios.get("http://localhost:5700/api/jobs/");
+      setJobs(result.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const companyName = jobs.map((item) => item.company);
+
+  useEffect(() => {
+    fetchJobs();
+  }, []);
+
   return (
     <>
+      <Navbar />
       <div className="home-container">
         <div className="hero-section">
-          <Navbar />
-          <div className="left-side">
-            Unlock Your <br></br>
-            Dream Career<br></br>
-            with JobComet
+          <div className="hero-left-side">
+            <h1>
+              Find Digital <span style={{ color: "#0056b3" }}>Internships</span>{" "}
+              and <br></br>
+              <span style={{ color: "#0056b3" }}>Fulltime</span> Jobs now with
+              <br></br>JobComet
+            </h1>
+            <p>
+              JobComet is your one stop centre for thousands<br></br>
+              of Internships and Fulltime Jobs.
+            </p>
+            <button className="hero-btn">Explore Jobs</button>
+          </div>
+          <div className="hero-right-side">
+            <img src={hero} alt="hero" />
           </div>
         </div>
       </div>
+      <HomeCards />
+      <PositionCard jobs={jobs} />
     </>
   );
 };

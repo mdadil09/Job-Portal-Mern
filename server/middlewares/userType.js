@@ -1,4 +1,6 @@
 const isUser = async (req, res, next) => {
+  console.log(req.user);
+
   if (req.user.role === "user") {
     return next();
   }
@@ -7,8 +9,6 @@ const isUser = async (req, res, next) => {
 };
 
 const isAdmin = async (req, res, next) => {
-  console.log(req.user);
-
   if (req.user.role === "admin") {
     return next();
   }
