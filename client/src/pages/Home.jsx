@@ -5,6 +5,9 @@ import hero from "../assets/hero.png";
 import HomeCards from "../components/cards/HomeCards";
 import PositionCard from "../components/cards/PositionCard";
 import axios from "axios";
+import TopJobsCard from "../components/cards/TopJobsCard";
+import Footer from "../components/footer/Footer";
+import WhatWeOffer from "../components/misc/WhatWeOffer";
 
 const Home = () => {
   const [jobs, setJobs] = useState([]);
@@ -13,14 +16,18 @@ const Home = () => {
 
   const fetchJobs = async () => {
     try {
-      const result = await axios.get("http://localhost:5700/api/jobs/");
+      const config = {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
+      };
+
+      const result = await axios.get("http://127.0.0.1:5700/api/jobs/", config);
       setJobs(result.data);
     } catch (error) {
       console.log(error);
     }
   };
-
-  const companyName = jobs.map((item) => item.company);
 
   useEffect(() => {
     fetchJobs();
@@ -32,7 +39,7 @@ const Home = () => {
       <div className="home-container">
         <div className="hero-section">
           <div className="hero-left-side">
-            <h1>
+            <h1 className="hero-text">
               Find Digital <span style={{ color: "#0056b3" }}>Internships</span>{" "}
               and <br></br>
               <span style={{ color: "#0056b3" }}>Fulltime</span> Jobs now with
@@ -50,7 +57,10 @@ const Home = () => {
         </div>
       </div>
       <HomeCards />
-      <PositionCard jobs={jobs} />
+      <PositionCard />
+      <TopJobsCard jobs={jobs} />
+      <WhatWeOffer />
+      <Footer />
     </>
   );
 };

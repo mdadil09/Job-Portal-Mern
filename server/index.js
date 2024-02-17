@@ -14,15 +14,20 @@ const adminAuthRoutes = require("./routes/adminAuth");
 const { adminRegister } = require("./controllers/adminAuth");
 const protect = require("./middlewares/auth");
 const { isUser } = require("./middlewares/userType");
+const helmet = require("helmet");
+const JobsData = require("./models/jobSchema");
+const fetchapi = require("./utils/api");
 
 //configuration:
 
 const app = express();
 dotenv.config();
-app.use(cors());
 app.use(bodyParser.json());
+app.use(helmet());
+app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use("/assets", express.static(path.join(__dirname, "public/assets")));
+app.use(cors());
 
 //File Storage
 
@@ -63,8 +68,14 @@ app.use("/api/admin/auth", adminAuthRoutes);
 const PORT = process.env.PORT || 5701;
 
 //Database Connection
-
+// fetchapi();
 connectDB();
+// const delteJob = async () => {
+//   const result = await JobsData.deleteMany();
+//   return result;
+// };
+
+// delteJob();
 
 //Creating express server
 

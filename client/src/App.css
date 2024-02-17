@@ -13,7 +13,7 @@ body {
   padding-right: 40px;
   padding-top: 5px;
   padding-bottom: 5px;
-  box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2); */
   background: #e0eafc; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
@@ -124,18 +124,19 @@ body {
 
 .home-card-main {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   margin-top: 20px;
-  margin-left: 200px;
-  margin-right: 200px;
+  margin-left: 100px;
+  margin-right: 100px;
   margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
 .home-card {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   height: 200px;
-  width: 250px;
+  width: 300px;
   color: black;
   background-color: white;
   border-radius: 5px;
@@ -181,4 +182,344 @@ body {
   font-size: 36px;
   font-weight: 900;
   letter-spacing: 1px;
+}
+
+.position-card-main {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-right: 100px;
+  margin-left: 100px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.position-card {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  height: 150px;
+  width: 300px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.position-card-text {
+  margin-left: 20px;
+}
+
+.position-card-text h3 {
+  margin-top: 2px;
+  margin-bottom: 0px;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.position-card-text p {
+  margin-top: 3px;
+  font-size: 14px;
+  font-weight: 520;
+  color: rgb(158, 154, 154);
+}
+
+.position-card-container-btn {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.position-card-container-btn a {
+  text-decoration: none;
+  background-color: #007bff;
+  font-size: 14px;
+  color: #fff;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+}
+
+.position-card-container-btn a:hover {
+  background-color: #0056b3;
+}
+
+.top-jobs-container {
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.top-jobs-upper {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.top-jobs-text h1 {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.top-jobs-text p {
+  margin-top: 3px;
+  font-size: 14px;
+  font-weight: 520;
+  color: rgb(158, 154, 154);
+}
+
+.top-jobs-btn {
+  margin-top: 20px;
+}
+
+.top-jobs-btn a {
+  text-decoration: none;
+  color: #0056b3;
+  border: 1px solid grey;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.top-jobs-btn a:hover {
+  color: #fff;
+  background-color: #0056b3;
+  border: none;
+}
+
+.top-jobs-card-main {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.top-job-cards {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  height: 200px;
+  width: 412px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.top-jobs-logo {
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  display: flex;
+}
+
+.top-jobs-logo img {
+  height: 48px;
+}
+
+.top-jobs-logo .top-jobs-log-text {
+  margin-left: 10px;
+}
+
+.top-jobs-logo .top-jobs-log-text h3 {
+  margin: 0;
+  font-size: 16px;
+  margin-bottom: 3px;
+}
+
+.top-jobs-logo .top-jobs-log-text p {
+  margin: 0;
+  font-size: 12px;
+  color: rgb(158, 154, 154);
+  font-weight: 600;
+}
+
+.top-jobs-title {
+  padding-left: 20px;
+  padding-bottom: 10px;
+}
+
+.top-jobs-title h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 550;
+}
+
+.top-jobs-title p {
+  margin: 3px 0px;
+  font-size: 12px;
+  font-weight: 520;
+  font-weight: 550;
+  color: rgb(158, 154, 154);
+}
+
+.top-jobs-capsule {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.top-jobs-capsule-1 {
+  font-size: 12px;
+  background-color: #b0cae6;
+  color: #0056b3;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-right: 10px;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.top-jobs-capsule-2 {
+  font-size: 12px;
+  background-color: #f7bda0;
+  color: #e34a27;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-right: 10px;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.top-jobs-capsule-3 {
+  font-size: 12px;
+  background-color: #aef2db;
+  color: #00a86b;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-right: 10px;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.with-offer-container {
+  margin-right: 120px;
+  margin-left: 120px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.with-offer-container-text {
+  margin-bottom: 20px;
+}
+
+.with-offer-container-text h1 {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.with-offer-container-text p {
+  margin: 3px 0px;
+  font-size: 12px;
+  font-weight: 520;
+  font-weight: 550;
+  color: rgb(158, 154, 154);
+}
+
+.with-offer-card {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.with-offer-container .offer-beach img {
+  height: 250px;
+  width: 415px;
+}
+
+.offer-beach-text {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.offer-beach-text h1 {
+  margin: 0;
+  font-size: 36px;
+  color: black;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+
+.offer-beach-text h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.verticalLine {
+  height: 44px;
+  border-left: thick solid #0056b3;
+  border-radius: 2px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+/* footer */
+
+footer {
+  background-color: rgb(243, 239, 233);
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 20px;
+}
+
+.footer-text h3 {
+}
+
+a {
+  text-decoration: none;
+}
+
+.quick-links div {
+  margin-bottom: 8px;
+}
+
+.quick-links a {
+  text-decoration: none;
+  color: grey;
+}
+
+.footer-contact p {
+  color: grey;
+}
+
+.bottom-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+  color: grey;
+}
+
+.bottom-section a {
+  color: grey;
+}
+
+.footer-contact div {
+  display: flex;
+  align-items: center;
+}
+
+.footer-contact span {
+  margin-right: 10px;
 }

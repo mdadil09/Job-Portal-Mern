@@ -2,17 +2,22 @@ const mongoose = require("mongoose");
 
 const jobsSchema = new mongoose.Schema(
   {
-    id: { type: String, unique: true },
-    type: { type: String },
-    url: { type: String },
-    created_at: { type: String },
-    company: { type: String },
-    company_url: { type: String },
-    location: { type: String },
-    title: { type: String },
-    description: { type: String },
-    how_to_apply: { type: String },
-    company_logo: { type: String },
+    id: { type: Number, unique: true },
+    url: String,
+    jobSlug: String,
+    jobTitle: String,
+    companyName: String,
+    companyLogo: String,
+    jobIndustry: [String],
+    jobType: [String],
+    jobGeo: String,
+    jobLevel: String,
+    jobExcerpt: String,
+    jobDescription: String,
+    pubDate: String,
+    annualSalaryMin: { type: String, default: "" },
+    annualSalaryMax: { type: String, default: "" },
+    salaryCurrency: String,
   },
   { timestamps: true }
 );

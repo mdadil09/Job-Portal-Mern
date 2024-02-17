@@ -1,9 +1,10 @@
 const JobsData = require("../models/jobSchema");
-const { nanoid } = require("nanoid");
+const { customAlphabet } = require("nanoid");
 
 const getAllJobs = async (req, res) => {
   try {
     const result = await JobsData.find();
+
     res.status(200).send(result);
   } catch (error) {
     res.status(400).send({
@@ -36,10 +37,12 @@ const searchJobs = async (req, res) => {
     const searchKey = req.params.key;
     const result = await JobsData.find({
       $or: [
-        { title: { $regex: searchKey, $options: "i" } },
-        { type: { $regex: searchKey, $options: "i" } },
-        { company: { $regex: searchKey, $options: "i" } },
-        { location: { $regex: searchKey, $options: "i" } },
+        { jobTitleitle: { $regex: searchKey, $options: "i" } },
+        { jobType: { $regex: searchKey, $options: "i" } },
+        { jobIndustry: { $regex: searchKey, $options: "i" } },
+        { jobGeo: { $regex: searchKey, $options: "i" } },
+        { jobLevel: { $regex: searchKey, $options: "i" } },
+        { companyName: { $regex: searchKey, $options: "i" } },
       ],
     });
 
@@ -54,32 +57,37 @@ const searchJobs = async (req, res) => {
 };
 
 const addJob = async (req, res) => {
+  const nanoid = customAlphabet("1234567890", 6);
   try {
     const {
-      type,
       url,
-      created_at,
-      company,
-      company_url,
-      location,
-      title,
-      description,
-      how_to_apply,
-      company_logo,
+      jobSlug,
+      jobTitle,
+      companyName,
+      companyLogo,
+      jobIndustry,
+      jobType,
+      jobGeo,
+      jobLevel,
+      jobExcerpt,
+      jobDescription,
+      pubDate,
     } = req.body;
 
     const newJob = await JobsData.create({
-      id: nanoid(32),
-      type: type,
+      id: nanoid(),
       url: url,
-      created_at: created_at,
-      company: company,
-      company_url: company_url,
-      location: location,
-      title: title,
-      description: description,
-      how_to_apply: how_to_apply,
-      company_logo: company_logo,
+      jobSlug: jobSlug,
+      jobTitle: jobTitle,
+      companyName: companyName,
+      companyLogo: companyLogo,
+      jobIndustry: jobIndustry,
+      jobType: jobType,
+      jobGeo: jobGeo,
+      jobLevel: jobLevel,
+      jobExcerpt: jobExcerpt,
+      jobDescription: jobDescription,
+      pubDate: pubDate,
     });
 
     res.status(200).send(newJob);
@@ -97,11 +105,11 @@ const updateJob = async (req, res) => {
       },
       {
         $set: {
-          description: req.body.description,
-          created_at: req.body.created_at,
-          location: req.body.location,
-          how_to_apply: req.body.how_to_apply,
-          title: req.body.title,
+          jobDescription: req.body.jobDescription,
+          pubDate: req.body.pubDate,
+          jobGeo: req.body.jobGeo,
+          jobExcerpt: req.body.jobExcerpt,
+          jobTitle: req.body.jobTitle,
           url: req.body.url,
         },
       },
