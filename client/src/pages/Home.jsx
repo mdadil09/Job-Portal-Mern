@@ -8,6 +8,7 @@ import axios from "axios";
 import TopJobsCard from "../components/cards/TopJobsCard";
 import Footer from "../components/footer/Footer";
 import WhatWeOffer from "../components/misc/WhatWeOffer";
+import EmailUs from "../components/misc/EmailUs";
 
 const Home = () => {
   const [jobs, setJobs] = useState([]);
@@ -60,6 +61,7 @@ const Home = () => {
       <PositionCard />
       <TopJobsCard jobs={jobs} />
       <WhatWeOffer />
+      <EmailUs />
       <Footer />
     </>
   );

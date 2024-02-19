@@ -10,7 +10,10 @@ const Footer = () => {
     <footer>
       <div className="footer-container">
         <div className="footer-text">
-          <h3>JobComet</h3>
+          <h1>
+            <span style={{ color: "#0056b3" }}>Job</span>
+            <span style={{ color: "#fc6A03" }}>Comet</span>
+          </h1>
           <p>
             JobComet offers you a cosmic gateway to boundless career<br></br>
             possibilities. Explore our constellation of opportunities<br></br>{" "}
@@ -93,7 +96,7 @@ const Footer = () => {
       <hr />
       <div className="bottom-section">
         <span>
-          Copyright © 2024 <Link href="/">JobComet.</Link> All rights reserved
+          Copyright © 2024 <Link href="/">JobComet.</Link>
         </span>
         <span>Term & Conditions</span>
       </div>

@@ -7,10 +7,16 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="left-side">
         <div className="logo">
-          <p>JobComet</p>
+          <p>
+            <span style={{ color: "#0056b3" }}>Job</span>
+            <span style={{ color: "#fc6A03" }}>Comet</span>
+          </p>
         </div>
       </div>
       <div className="right-side">
+        {/* <Link className="normal-btn" to="/">
+          Explore Jobs
+        </Link> */}
         <Link className="lgn-btn" to="/login">
           Log In
         </Link>

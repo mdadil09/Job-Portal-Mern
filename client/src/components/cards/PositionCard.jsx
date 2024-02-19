@@ -17,7 +17,7 @@ const PositionCard = () => {
       <div className="position-card-container-text">
         <h1>
           <span style={{ color: "#0056b3" }}>Countless Career Options</span> Are
-          Waiting<br></br> for you to explore
+          Waiting for you to explore
         </h1>
       </div>
       <div className="position-card-main">

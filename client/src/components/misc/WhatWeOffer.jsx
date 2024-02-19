@@ -11,7 +11,7 @@ const WhatWeOffer = () => {
         <h1>What We Offer</h1>
         <p>
           Job Portal is the right platform for you to get various job
-          recommendations, get career<br></br>counselling and get your ideal job
+          recommendations,<br></br>get career counselling and get your ideal job
           profile
         </p>
       </div>
