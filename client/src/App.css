@@ -439,6 +439,7 @@ body {
 .top-jobs-title {
   padding-left: 20px;
   padding-bottom: 10px;
+  padding-right: 20px;
 }
 
 .top-jobs-title h3 {
@@ -459,6 +460,7 @@ body {
   display: flex;
   justify-content: start;
   align-items: center;
+  flex-wrap: wrap;
   margin-top: 10px;
   margin-left: 20px;
 }
@@ -474,6 +476,7 @@ body {
   margin-right: 10px;
   border-radius: 5px;
   font-weight: 600;
+  margin-bottom: 8px;
 }
 
 .top-jobs-capsule-2 {
@@ -487,6 +490,7 @@ body {
   margin-right: 10px;
   border-radius: 5px;
   font-weight: 600;
+  margin-bottom: 8px;
 }
 
 .top-jobs-capsule-3 {
@@ -500,6 +504,7 @@ body {
   margin-right: 10px;
   border-radius: 5px;
   font-weight: 600;
+  margin-bottom: 8px;
 }
 
 @media screen and (max-width: 768px) {
@@ -836,4 +841,78 @@ a {
     align-items: flex-start;
     padding-left: 20px;
   }
+  .footer-text p {
+    font-size: 12px;
+  }
+}
+
+.explore-jobs {
+  display: flex;
+}
+
+.sidebar {
+  width: 30%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+/* job-card */
+
+.job-card-container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.job-cards {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  height: 310px;
+  width: 270px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-right: 16px;
+}
+
+.job-button {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.apply-now {
+  font-size: 12px;
+  color: #fff;
+  background-color: #007bff;
+  padding: 8px 16px 8px 16px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.apply-now:hover {
+  background-color: #0056b3;
+}
+
+.view-details {
+  font-size: 12px;
+  color: black;
+  background: none;
+  padding: 8px 16px 8px 16px;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.view-details:hover {
+  background-color: #0056b3;
+  color: #fff;
 }

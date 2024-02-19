@@ -8,12 +8,14 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
+import ExploreJobs from "./pages/ExploreJobs";
 
 function App() {
   return (
     <>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/jobs" element={<ExploreJobs />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />

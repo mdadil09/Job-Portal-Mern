@@ -9,30 +9,19 @@ import TopJobsCard from "../components/cards/TopJobsCard";
 import Footer from "../components/footer/Footer";
 import WhatWeOffer from "../components/misc/WhatWeOffer";
 import EmailUs from "../components/misc/EmailUs";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchJobs } from "../redux/slice/jobSlice";
+import { Link } from "react-router-dom";
 
 const Home = () => {
-  const [jobs, setJobs] = useState([]);
+  const jobs = useSelector((state) => state.job.jobs);
+  const dispatch = useDispatch();
 
   console.log(jobs);
 
-  const fetchJobs = async () => {
-    try {
-      const config = {
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-        },
-      };
-
-      const result = await axios.get("http://127.0.0.1:5700/api/jobs/", config);
-      setJobs(result.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   useEffect(() => {
-    fetchJobs();
-  }, []);
+    dispatch(fetchJobs());
+  }, [dispatch]);
 
   return (
     <>
@@ -50,7 +39,9 @@ const Home = () => {
               JobComet is your one stop centre for thousands<br></br>
               of Internships and Fulltime Jobs.
             </p>
-            <button className="hero-btn">Explore Jobs</button>
+            <Link to="/jobs" className="hero-btn">
+              Explore Jobs
+            </Link>
           </div>
           <div className="hero-right-side">
             <img src={hero} alt="hero" />
