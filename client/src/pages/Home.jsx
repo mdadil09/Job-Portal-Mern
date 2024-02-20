@@ -4,9 +4,7 @@ import Navbar from "../components/Headers/Navbar";
 import hero from "../assets/hero.png";
 import HomeCards from "../components/cards/HomeCards";
 import PositionCard from "../components/cards/PositionCard";
-import axios from "axios";
 import TopJobsCard from "../components/cards/TopJobsCard";
-import Footer from "../components/footer/Footer";
 import WhatWeOffer from "../components/misc/WhatWeOffer";
 import EmailUs from "../components/misc/EmailUs";
 import { useDispatch, useSelector } from "react-redux";
@@ -53,7 +51,6 @@ const Home = () => {
       <TopJobsCard jobs={jobs} />
       <WhatWeOffer />
       <EmailUs />
-      <Footer />
     </>
   );
 };

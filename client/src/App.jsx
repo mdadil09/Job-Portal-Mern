@@ -9,6 +9,7 @@ import Dashboard from "./pages/Dashboard";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
 import ExploreJobs from "./pages/ExploreJobs";
+import Footer from "./components/footer/Footer";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/signup" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
+      <Footer />
     </>
   );
 }

@@ -105,7 +105,7 @@ const sendOTPRegister = async (req, res) => {
       otpBody,
       name: name,
       email: email,
-      image: image,
+      image: imagePath,
       token: generateToken(userData._id, userData.role),
     });
   } catch (error) {

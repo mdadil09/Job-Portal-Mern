@@ -13,7 +13,7 @@ const router = express.Router();
 router.get("/", getAllJobs);
 router.get("/applied", protect, isUser, getAppliedJobs);
 router.get("/:id", protect, commonRole, getSingleJobs);
-router.get("/search/:key", protect, commonRole, searchJobs);
+router.get("/search/:key", searchJobs);
 router.post("/applyjob/:jobId", protect, isUser, appliedJobs);
 
 module.exports = router;
