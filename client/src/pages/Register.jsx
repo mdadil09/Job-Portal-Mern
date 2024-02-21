@@ -50,7 +50,6 @@ const Register = () => {
         formData,
         config
       );
-      console.log(formData);
       setShiftOtp(true);
     } catch (error) {
       console.log(error);
@@ -70,7 +69,6 @@ const Register = () => {
         { email, otp },
         config
       );
-      console.log(email);
       navigate("/");
     } catch (error) {
       console.log(error.message);
