@@ -3,9 +3,11 @@
 import React from "react";
 import { getFirstLine } from "../../utils/utils";
 import building from "../../assets/office-building.png";
+import { Link } from "react-router-dom";
 
 const Card = ({ jobs }) => {
   const {
+    _id,
     companyName,
     jobGeo,
     jobTitle,
@@ -38,8 +40,10 @@ const Card = ({ jobs }) => {
         <div className="top-jobs-capsule-2">{jobGeo}</div>
       </div>
       <div className="job-button">
-        <button className="apply-now">Apply Now</button>
-        <button className="view-details">View Details</button>
+        <Link className="apply-now">Apply Now</Link>
+        <Link to={`/singlejob/${_id}`} className="view-details">
+          View Details
+        </Link>
       </div>
     </div>
   );

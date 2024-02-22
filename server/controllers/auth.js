@@ -36,6 +36,7 @@ const sendOTP = async (req, res) => {
         res.status(200).json({
           success: true,
           message: "OTP sent successfully",
+          user: user,
           email: email,
           otp: otp,
           token: generateToken(user._id, user.role),
@@ -56,7 +57,9 @@ const sendOTP = async (req, res) => {
 const sendOTPRegister = async (req, res) => {
   try {
     const { name, email, password } = req.body;
-    const imagePath = req.file.path;
+    const image = req.file.filename;
+
+    console.log(req.file);
 
     //hashing Password
     const salt = await bcrypt.genSalt(10);
@@ -92,7 +95,7 @@ const sendOTPRegister = async (req, res) => {
       name: name,
       email: email,
       password: hanshedPassword,
-      image: imagePath,
+      image: image,
     });
 
     const otpBody = await OTP.create({
@@ -105,7 +108,7 @@ const sendOTPRegister = async (req, res) => {
       otpBody,
       name: name,
       email: email,
-      image: imagePath,
+      image: image,
       token: generateToken(userData._id, userData.role),
     });
   } catch (error) {
@@ -117,6 +120,8 @@ const sendOTPRegister = async (req, res) => {
 const verifyOTP = async (req, res) => {
   try {
     const { otp, email } = req.body;
+    const user = await User.findOne({ email });
+
     const response = await OTP.findOne({ email })
       .sort({ createdAt: -1 })
       .limit(1);
@@ -133,11 +138,11 @@ const verifyOTP = async (req, res) => {
       });
     }
 
-    console.log(response);
-
     return res.status(200).json({
       success: true,
       message: "The OTP is  valid",
+      user: user,
+      token: generateToken(user._id, user.role),
     });
   } catch (error) {
     console.log(error.message);

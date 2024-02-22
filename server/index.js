@@ -42,16 +42,12 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 /* ROUTES WITH FILES */
-app.post(
-  "/api/user/send-otp-register",
-  upload.single("picture"),
-  sendOTPRegister
-);
+app.post("/api/user/send-otp-register", upload.single("file"), sendOTPRegister);
 app.post(
   "/api/jobs/applyjob",
   protect,
   isUser,
-  upload.single("picture"),
+  upload.single("file"),
   applyJob
 );
 app.post("/api/admin/auth/register", adminRegister);

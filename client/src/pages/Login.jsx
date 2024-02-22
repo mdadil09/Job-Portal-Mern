@@ -6,6 +6,8 @@ import axios from "axios";
 import NavbarGlobal from "../components/Headers/NavbarGlobal";
 import login from "../assets/login.svg";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setLogin } from "../redux/slice/authSlice";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -13,6 +15,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [shiftOtp, setShiftOtp] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSendOTP = async () => {
     try {
@@ -47,6 +50,20 @@ const Login = () => {
         { email, otp },
         config
       );
+
+      const loggedIn = result.data;
+
+      console.log(loggedIn);
+
+      if (loggedIn) {
+        dispatch(
+          setLogin({
+            user: loggedIn.user,
+            token: loggedIn.token,
+          })
+        );
+      }
+
       navigate("/");
     } catch (error) {
       console.log(error.message);

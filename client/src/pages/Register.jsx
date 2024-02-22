@@ -15,19 +15,10 @@ const Register = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [shiftOtp, setShiftOtp] = useState(false);
   const [password, setPassword] = useState("");
+  const [file, setFile] = useState();
   const navigate = useNavigate();
 
-  const handlePicturePathChange = (event) => {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-    console.log(reader);
-    reader.onloadend = () => {
-      setPicturePath(reader.result);
-      setFileName(file.name);
-      setSelectedFile(file);
-    };
-    reader.readAsDataURL(file);
-  };
+  console.log(file);
 
   const handleSendOTP = async () => {
     const formData = new FormData();
@@ -35,9 +26,7 @@ const Register = () => {
     formData.append("name", name);
     formData.append("email", email);
     formData.append("password", password);
-    if (picturePath) {
-      formData.append("picture", selectedFile);
-    }
+    formData.append("file", file);
     try {
       const config = {
         headers: {
@@ -135,7 +124,7 @@ const Register = () => {
                   <input
                     type="file"
                     name="picturePath"
-                    onChange={handlePicturePathChange}
+                    onChange={(e) => setFile(e.target.files[0])}
                   />{" "}
                 </div>
               </>

@@ -10,6 +10,7 @@ import Register from "./pages/Register";
 import Home from "./pages/Home";
 import ExploreJobs from "./pages/ExploreJobs";
 import Footer from "./components/footer/Footer";
+import SingleJob from "./components/jobs/SingleJob";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/singlejob/:id" element={<SingleJob />} />
       </Routes>
       <Footer />
     </>

@@ -1,9 +1,30 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import userImage from "../../assets/user.png";
+import { setLogout } from "../../redux/slice/authSlice";
 
 const Navbar = () => {
   const [menuActive, setMenuActive] = useState(false);
+  const user = useSelector((state) => state.auth.user);
+  const [isOpen, setIsOpen] = useState(false);
+  const dispatch = useDispatch();
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleSignOut = () => {
+    dispatch(
+      setLogout({
+        user: null,
+        token: null,
+      })
+    );
+  };
+
+  console.log(user);
 
   return (
     <div className="navbar">
@@ -21,7 +42,7 @@ const Navbar = () => {
         <span></span>
         <span></span>
       </div>
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex", alignItems: "center" }}>
         <ul className={`right-side ${menuActive ? "active" : ""}`}>
           <li>
             <Link to="/">Home</Link>
@@ -39,9 +60,31 @@ const Navbar = () => {
           </li>
         </ul>
         <div className="visible-side">
-          <Link className="sig-btn" to="/signin">
-            Sign In
-          </Link>
+          {user ? (
+            <div>
+              <img
+                src={`http://localhost:5700/assets/${user.image}`}
+                alt=""
+                style={{ height: "32px" }}
+                onClick={toggleMenu}
+              />
+              {isOpen && (
+                <div
+                  className="img-dropdown-menu"
+                  style={{ listStyle: "none" }}
+                >
+                  <div>
+                    <Link to="/dashboard">Dashboard</Link>
+                  </div>
+                  <div onClick={handleSignOut}>Sign Out</div>
+                </div>
+              )}
+            </div>
+          ) : (
+            <Link className="sig-btn" to="/login">
+              Sign In
+            </Link>
+          )}
         </div>
       </div>
     </div>
