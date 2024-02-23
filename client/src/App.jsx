@@ -11,6 +11,7 @@ import Home from "./pages/Home";
 import ExploreJobs from "./pages/ExploreJobs";
 import Footer from "./components/footer/Footer";
 import SingleJob from "./components/jobs/SingleJob";
+import ApplyJobs from "./components/jobs/ApplyJobs";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/signup" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/singlejob/:id" element={<SingleJob />} />
+        <Route path="/apply" element={<ApplyJobs />} />
       </Routes>
       <Footer />
     </>

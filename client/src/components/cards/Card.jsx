@@ -40,7 +40,9 @@ const Card = ({ jobs }) => {
         <div className="top-jobs-capsule-2">{jobGeo}</div>
       </div>
       <div className="job-button">
-        <Link className="apply-now">Apply Now</Link>
+        <Link to="/apply" className="apply-now">
+          Apply Now
+        </Link>
         <Link to={`/singlejob/${_id}`} className="view-details">
           View Details
         </Link>

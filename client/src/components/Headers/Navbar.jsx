@@ -24,8 +24,6 @@ const Navbar = () => {
     );
   };
 
-  console.log(user);
-
   return (
     <div className="navbar">
       <Link to="/" className="logo">
