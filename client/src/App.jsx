@@ -23,7 +23,7 @@ function App() {
         <Route path="/signup" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/singlejob/:id" element={<SingleJob />} />
-        <Route path="/apply" element={<ApplyJobs />} />
+        <Route path="/apply/:id" element={<ApplyJobs />} />
       </Routes>
       <Footer />
     </>

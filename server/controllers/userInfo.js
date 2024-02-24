@@ -28,8 +28,11 @@ const applyJob = async (req, res) => {
       jobEndDate,
     } = req.body;
 
-    const profilePicPath = req.file.path;
-    const resumePath = req.file.path;
+    const profilePicFiles = req.files["profilePic"];
+    const resumeFiles = req.files["resume"];
+
+    const profilePicPath = profilePicFiles[0].filename;
+    const resumePath = resumeFiles[0].filename;
 
     const newProfile = await UserInfo.create({
       name: name,
@@ -67,7 +70,6 @@ const applyJob = async (req, res) => {
 const appliedJobs = async (req, res) => {
   try {
     const userId = req.user.id;
-    console.log(userId);
     const jobId = req.params.jobId;
     const userInfo = await UserInfo.findOne({ createdBy: userId });
 

@@ -1933,11 +1933,48 @@ a {
   padding: 10px;
 }
 
-.apply-input-group label.label input[type="file"] {
+.apply-input-group {
+  width: 100%;
+  padding-left: 20px;
+}
+
+.apply-input-group label {
+  font-weight: 550;
+}
+
+.apply-input-group input {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 90%;
+  font-size: 18px;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+.apply-input-group input:focus {
+  outline: 1px solid #007bff;
+}
+
+.apply-input-group textarea {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 90%;
+  font-size: 18px;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+.apply-input-group textarea:focus {
+  outline: 1px solid #007bff;
+}
+
+.doc-input-group label.label input[type="file"] {
   position: absolute;
   top: -1000px;
 }
-.apply-input-group .label {
+.doc-input-group .label {
   cursor: pointer;
   border: none;
   border-radius: 5px;
@@ -1947,15 +1984,65 @@ a {
   color: white;
   display: inline-block;
 }
-.apply-input-group .label:hover {
+.doc-input-group .label:hover {
   background: #0056b3;
 }
-.apply-input-group .label:active {
+.doc-input-group .label:active {
   background: #0056b3;
 }
-.apply-input-group .label:invalid + span {
+.doc-input-group .label:invalid + span {
   color: #000000;
 }
-.apply-input-group .label:valid + span {
+.doc-input-group .label:valid + span {
   color: #ffffff;
+}
+
+.apply-doc-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-left: 20px;
+  width: 90%;
+  border: 1px dotted gray;
+  border-radius: 5px;
+  padding: 8px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.doc-input-group {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  font-size: 16px;
+}
+
+.doc-input-group img {
+  height: 14px;
+  margin-right: 5px;
+}
+
+.doc-input-group p {
+  margin: 0;
+}
+
+.apply-input-group-btn {
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.apply-input-group-btn button {
+  font-size: 14px;
+  color: #fff;
+  background-color: #007bff;
+  padding: 8px 16px 8px 16px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.apply-input-group-btn button:hover {
+  background-color: #0056b3;
 }

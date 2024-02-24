@@ -47,7 +47,10 @@ app.post(
   "/api/jobs/applyjob",
   protect,
   isUser,
-  upload.single("file"),
+  upload.fields([
+    { name: "profilePic", maxCount: 1 },
+    { name: "resume", maxCount: 1 },
+  ]),
   applyJob
 );
 app.post("/api/admin/auth/register", adminRegister);

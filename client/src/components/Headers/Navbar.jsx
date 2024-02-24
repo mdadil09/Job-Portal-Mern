@@ -49,9 +49,6 @@ const Navbar = () => {
             <Link to="/jobs">Jobs</Link>
           </li>
           <li>
-            <Link to="/">Dashboard</Link>
-          </li>
-          <li>
             <Link className="lgn-btn" to="/admin">
               Post Your Job
             </Link>

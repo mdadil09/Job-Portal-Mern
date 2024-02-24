@@ -10,10 +10,14 @@ import FilteredJobs from "../components/jobs/FilteredJobs";
 
 const ExploreJobs = () => {
   const jobs = useSelector((state) => state.job.jobs);
+  const token = useSelector((state) => state.auth.token);
+
   const dispatch = useDispatch();
 
   const [inputValue, setInputValue] = useState("");
   const [filteredItem, setFilteredItem] = useState([]);
+
+  console.log(typeof inputValue);
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
@@ -22,8 +26,16 @@ const ExploreJobs = () => {
 
   const fetchApi = async () => {
     try {
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
       const result = await axios.get(
-        `http://localhost:5700/api/jobs/search/${inputValue}`
+        `http://localhost:5700/api/jobs/search/${encodeURIComponent(
+          inputValue
+        )}`,
+        config
       );
       setFilteredItem(result.data);
     } catch (error) {

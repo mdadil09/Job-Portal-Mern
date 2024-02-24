@@ -48,7 +48,7 @@ const SingleJob = () => {
       setApiText(singleJob.jobDescription.toString());
     }
     fetchSingleJob();
-  }, []);
+  }, [singleJob]);
 
   let {
     _id,

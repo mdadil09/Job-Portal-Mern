@@ -17,9 +17,9 @@ const getAllJobs = async (req, res) => {
 
 const getSingleJobs = async (req, res) => {
   try {
-    const id = req.params.id;
+    const jobId = req.params.id;
     const result = await JobsData.findOne({
-      _id: id,
+      _id: jobId,
     });
 
     res.status(200).send(result);
