@@ -119,6 +119,28 @@ const ApplyJobs = () => {
         formData,
         config
       );
+
+      fetchApplyJobs();
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  const fetchApplyJobs = async () => {
+    try {
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      };
+
+      const result = await axios.post(
+        `http://localhost:5700/api/jobs/jobapplied`,
+        { id },
+        config
+      );
+      console.log(result);
     } catch (error) {
       console.log(error.message);
     }

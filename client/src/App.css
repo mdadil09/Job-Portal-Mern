@@ -2046,3 +2046,148 @@ a {
 .apply-input-group-btn button:hover {
   background-color: #0056b3;
 }
+
+/* Dashboard Page */
+
+.dashboard-container {
+  margin: 40px;
+}
+
+.dashboard-card {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  width: 90vw;
+  min-height: 60vh;
+  max-height: auto;
+  padding: 20px;
+}
+
+.dashboard-upper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dashboard-upper h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.dash-upper-right {
+  display: flex;
+}
+
+.dash-upper-right img {
+  height: 48px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.dash-upper-right h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.dash-upper-right p {
+  margin-top: 5px;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+  color: rgb(78, 74, 74);
+  font-size: 14px;
+  font-weight: 550;
+}
+
+.dashboard-lower {
+  padding: 20px;
+}
+
+.dashboard-applied {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.dash-img-text {
+  display: flex;
+  justify-content: start;
+  width: 40%;
+}
+
+.dash-img-text h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 10px;
+}
+
+.dash-img-text p {
+  margin-top: 3px;
+  margin-left: 10px;
+  font-size: 14px;
+  color: rgb(78, 74, 74);
+}
+
+.dashboard-applied img {
+  height: 48px;
+}
+
+.dashboard-ago p {
+  font-size: 16px;
+  color: rgb(78, 74, 74);
+  margin: 0;
+}
+
+.withdraw-btn {
+  font-size: 14px;
+  color: #fff;
+  background-color: #ef0107;
+  padding: 5px 10px 5px 10px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.withdraw-btn:hover {
+  background-color: #cc0000;
+}
+
+@media only screen and (max-width: 768px) {
+  .dashboard-container {
+    margin: 20px;
+  }
+
+  .dashboard-card {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 85vw;
+    padding: 10px;
+  }
+
+  .dash-upper-left {
+    display: none;
+  }
+
+  .dashboard-lower {
+    padding: 0;
+  }
+
+  .dash-img-text {
+    display: flex;
+    justify-content: start;
+    width: 40%;
+  }
+
+  .dash-img-text h3 {
+    font-size: 12px;
+  }
+
+  .dash-img-text p {
+    font-size: 10px;
+  }
+
+  .dashboard-ago p {
+    font-size: 12px;
+  }
+
+  .withdraw-btn {
+    font-size: 10px;
+  }
+}

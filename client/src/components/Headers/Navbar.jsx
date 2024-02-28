@@ -24,6 +24,8 @@ const Navbar = () => {
     );
   };
 
+  console.log(user);
+
   return (
     <div className="navbar">
       <Link to="/" className="logo">
@@ -49,16 +51,18 @@ const Navbar = () => {
             <Link to="/jobs">Jobs</Link>
           </li>
           <li>
-            <Link className="lgn-btn" to="/admin">
-              Post Your Job
-            </Link>
+            {user?.role == "user" ? null : (
+              <Link className="lgn-btn" to="/admin">
+                For Business
+              </Link>
+            )}
           </li>
         </ul>
         <div className="visible-side">
           {user ? (
             <div>
               <img
-                src={`http://localhost:5700/assets/${user.image}`}
+                src={`http://localhost:5700/assets/${user?.image}`}
                 alt=""
                 style={{ height: "32px" }}
                 onClick={toggleMenu}

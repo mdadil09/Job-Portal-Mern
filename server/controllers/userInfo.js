@@ -70,8 +70,9 @@ const applyJob = async (req, res) => {
 const appliedJobs = async (req, res) => {
   try {
     const userId = req.user.id;
-    const jobId = req.params.jobId;
+    const jobId = req.body.id;
     const userInfo = await UserInfo.findOne({ createdBy: userId });
+    console.log(userInfo);
 
     if (!userInfo) {
       return res
@@ -108,8 +109,23 @@ const getAppliedJobs = async (req, res) => {
   }
 };
 
+const deleteAppliedJob = async (req, res) => {
+  try {
+    const id = req.params.id;
+
+    const result = await JobApplication.deleteOne({
+      jobId: id,
+    });
+
+    res.status(200).send("Applied Job Deleted");
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
 module.exports = {
   applyJob,
   appliedJobs,
   getAppliedJobs,
+  deleteAppliedJob,
 };

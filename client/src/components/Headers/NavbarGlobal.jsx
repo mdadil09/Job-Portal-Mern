@@ -50,9 +50,13 @@ const NavbarGlobal = () => {
           </li>
 
           <li>
-            <Link className="lgn-btn" to="/admin">
-              Post Your Job
-            </Link>
+            <li>
+              {user?.role == "user" ? null : (
+                <Link className="lgn-btn" to="/admin">
+                  For Business
+                </Link>
+              )}
+            </li>
           </li>
         </ul>
         <div className="visible-side">
