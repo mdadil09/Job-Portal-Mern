@@ -12,6 +12,9 @@ import ExploreJobs from "./pages/ExploreJobs";
 import Footer from "./components/footer/Footer";
 import SingleJob from "./components/jobs/SingleJob";
 import ApplyJobs from "./components/jobs/ApplyJobs";
+import AdminRegister from "./pages/AdminRegister";
+import AdminLogin from "./pages/AdminLogin";
+import AdminDashboard from "./pages/AdminDashboard";
 
 function App() {
   return (
@@ -24,6 +27,9 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/singlejob/:id" element={<SingleJob />} />
         <Route path="/apply/:id" element={<ApplyJobs />} />
+        <Route path="/adminSignup" element={<AdminRegister />} />
+        <Route path="/adminSignin" element={<AdminLogin />} />
+        <Route path="/adminDashboard" element={<AdminDashboard />} />
       </Routes>
       <Footer />
     </>

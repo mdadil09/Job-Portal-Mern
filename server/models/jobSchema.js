@@ -18,6 +18,10 @@ const jobsSchema = new mongoose.Schema(
     annualSalaryMin: { type: String, default: "" },
     annualSalaryMax: { type: String, default: "" },
     salaryCurrency: String,
+    createdBy: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "users",
+    },
   },
   { timestamps: true }
 );

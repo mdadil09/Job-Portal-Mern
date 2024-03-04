@@ -53,7 +53,7 @@ app.post(
   ]),
   applyJob
 );
-app.post("/api/admin/auth/register", adminRegister);
+app.post("/api/admin/auth/register", upload.single("file"), adminRegister);
 
 //Routes
 

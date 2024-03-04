@@ -5,7 +5,7 @@ const generateToken = require("../utils/generateToken");
 const adminRegister = async (req, res) => {
   try {
     const { name, email, password, role } = req.body;
-    const imagePath = req.file.path;
+    const imagePath = req.file.filename;
 
     //hashing Password
     const salt = await bcrypt.genSalt(10);
@@ -60,8 +60,7 @@ const adminLogin = async (req, res) => {
         });
       }
       res.status(200).json({
-        name: user.name,
-        email: user.email,
+        user: user,
         token: generateToken(user._id, user.role),
       });
     } else {

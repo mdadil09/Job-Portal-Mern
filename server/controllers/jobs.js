@@ -72,6 +72,9 @@ const addJob = async (req, res) => {
       jobExcerpt,
       jobDescription,
       pubDate,
+      annualSalaryMin,
+      annualSalaryMax,
+      salaryCurrency,
     } = req.body;
 
     const newJob = await JobsData.create({
@@ -88,6 +91,10 @@ const addJob = async (req, res) => {
       jobExcerpt: jobExcerpt,
       jobDescription: jobDescription,
       pubDate: pubDate,
+      annualSalaryMin: annualSalaryMin,
+      annualSalaryMax: annualSalaryMax,
+      salaryCurrency: salaryCurrency,
+      createdBy: req.user.id,
     });
 
     res.status(200).send(newJob);

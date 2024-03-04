@@ -52,8 +52,11 @@ const Navbar = () => {
           </li>
           <li>
             {user?.role == "user" ? null : (
-              <Link className="lgn-btn" to="/admin">
-                For Business
+              <Link
+                className="lgn-btn"
+                to={user ? "/adminDashboard" : "/adminSignup"}
+              >
+                {user ? "For Business" : "Post Your Job"}
               </Link>
             )}
           </li>
@@ -73,7 +76,13 @@ const Navbar = () => {
                   style={{ listStyle: "none" }}
                 >
                   <div>
-                    <Link to="/dashboard">Dashboard</Link>
+                    <Link
+                      to={
+                        user.role == "admin" ? "/adminDashboard" : "/dashboard"
+                      }
+                    >
+                      Dashboard
+                    </Link>
                   </div>
                   <div onClick={handleSignOut}>Sign Out</div>
                 </div>

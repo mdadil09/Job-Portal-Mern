@@ -10,9 +10,6 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [otp, setOTP] = useState("");
-  const [picturePath, setPicturePath] = useState("");
-  const [fileName, setFileName] = useState("");
-  const [selectedFile, setSelectedFile] = useState(null);
   const [shiftOtp, setShiftOtp] = useState(false);
   const [password, setPassword] = useState("");
   const [file, setFile] = useState();
