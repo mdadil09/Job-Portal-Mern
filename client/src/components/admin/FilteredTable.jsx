@@ -1,13 +1,13 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import UpdateModal from "./UpdateModal";
+import { useSelector } from "react-redux";
+import axios from "axios";
 import edit from "../../assets/edit.png";
 import del from "../../assets/delete.png";
-import { useDispatch, useSelector } from "react-redux";
-import UpdateModal from "./UpdateModal";
-import axios from "axios";
-import { fetchJobs } from "../../redux/slice/jobSlice";
 
-const JobTable = () => {
+const FilteredTable = ({ filteredItem }) => {
   let jobs = useSelector((state) => state.job.jobs);
   const [modalIsOpen, setIsOpen] = useState(false);
   const [filteredId, setFilteredId] = useState([]);
@@ -43,6 +43,7 @@ const JobTable = () => {
       console.log(error);
     }
   };
+
   return (
     <>
       <table>
@@ -56,7 +57,7 @@ const JobTable = () => {
           </tr>
         </thead>
         <tbody>
-          {jobs.map((item) => (
+          {filteredItem.map((item) => (
             <tr key={item._id}>
               <td>{item.id}</td>
               <td>{item.jobTitle}</td>
@@ -89,4 +90,4 @@ const JobTable = () => {
   );
 };
 
-export default JobTable;
+export default FilteredTable;

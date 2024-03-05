@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 import cancel from "../../assets/cancel.png";
 import image from "../../assets/image.png";
+import { useSelector } from "react-redux";
+import axios from "axios";
 
 const customStyles = {
   content: {
@@ -40,6 +42,7 @@ const AddJobModal = ({ modalIsOpen, closeModal }) => {
   const [pubDate, setPubDate] = useState("");
   const [nextOne, setNextOne] = useState(false);
   const [backOne, setBackOne] = useState(false);
+  const token = useSelector((state) => state.auth.token);
 
   const handleNextOne = () => {
     setNextOne(true);
@@ -47,6 +50,45 @@ const AddJobModal = ({ modalIsOpen, closeModal }) => {
 
   const handleBackOne = () => {
     setNextOne(false);
+  };
+
+  const addJob = async () => {
+    const formData = new FormData();
+
+    formData.append("url", url);
+    formData.append("jobSlug", jobSlug);
+    formData.append("jobTitle", jobTitle);
+    formData.append("companyName", companyName);
+    formData.append("companyLogo", companyLogo);
+    formData.append("jobIndustry", jobIndustry);
+    formData.append("jobType", jobType);
+    formData.append("jobGeo", jobGeo);
+    formData.append("jobLevel", jobLevel);
+    formData.append("jobExcerpt", jobExcerpt);
+    formData.append("jobDescription", jobDescription);
+    formData.append("annualSalaryMin", annualSalaryMin);
+    formData.append("annualSalaryMax", annualSalaryMax);
+    formData.append("salaryCurrency", salaryCurrency);
+    formData.append("pubDate", pubDate);
+
+    try {
+      const config = {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${token}`,
+        },
+      };
+
+      const result = await axios.post(
+        "http://localhost:5700/api/admin/add",
+        formData,
+        config
+      );
+
+      closeModal();
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (
@@ -137,7 +179,7 @@ const AddJobModal = ({ modalIsOpen, closeModal }) => {
             <button className="add-next-btn" onClick={handleBackOne}>
               Back
             </button>
-            <button className="add-next-btn" onClick={""}>
+            <button className="add-next-btn" onClick={addJob}>
               Submit
             </button>
           </>

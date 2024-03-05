@@ -1,14 +1,12 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import search from "../../assets/search-icon.png";
+import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
+import { fetchJobs } from "../../redux/slice/jobSlice";
 
-const SearchInput = () => {
-  const [inputValue, setInputValue] = useState("");
-
-  const handleInputChange = (e) => {
-    setInputValue(e.target.value);
-  };
+const SearchInput = ({ inputValue, handleInputChange }) => {
   return (
     <div className="input-search">
       <img src={search} alt="" style={{ height: "10px" }} />

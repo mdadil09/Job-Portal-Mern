@@ -17,8 +17,6 @@ const ExploreJobs = () => {
   const [inputValue, setInputValue] = useState("");
   const [filteredItem, setFilteredItem] = useState([]);
 
-  console.log(typeof inputValue);
-
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
     fetchApi();
@@ -47,6 +45,7 @@ const ExploreJobs = () => {
     fetchApi();
     dispatch(fetchJobs());
   }, [dispatch]);
+
   return (
     <>
       <NavbarGlobal />

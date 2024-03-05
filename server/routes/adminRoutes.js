@@ -5,7 +5,6 @@ const { isAdmin } = require("../middlewares/userType");
 
 const router = express.Router();
 
-router.post("/add", protect, isAdmin, addJob);
 router.patch("/update/:id", protect, isAdmin, updateJob);
 router.delete("/delete/:id", protect, isAdmin, deleteJob);
 

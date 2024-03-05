@@ -1,6 +1,8 @@
 const JobsData = require("../models/jobSchema");
 const { customAlphabet } = require("nanoid");
 
+const formatDate = require("../utils/config");
+
 const getAllJobs = async (req, res) => {
   try {
     const result = await JobsData.find();
@@ -64,18 +66,23 @@ const addJob = async (req, res) => {
       jobSlug,
       jobTitle,
       companyName,
-      companyLogo,
       jobIndustry,
       jobType,
       jobGeo,
       jobLevel,
       jobExcerpt,
       jobDescription,
-      pubDate,
       annualSalaryMin,
       annualSalaryMax,
       salaryCurrency,
     } = req.body;
+
+    const companyLogo = req.file.filename;
+
+    const now = new Date();
+    const formattedDate = formatDate(now);
+
+    console.log(formattedDate);
 
     const newJob = await JobsData.create({
       id: nanoid(),
@@ -90,7 +97,7 @@ const addJob = async (req, res) => {
       jobLevel: jobLevel,
       jobExcerpt: jobExcerpt,
       jobDescription: jobDescription,
-      pubDate: pubDate,
+      pubDate: formattedDate,
       annualSalaryMin: annualSalaryMin,
       annualSalaryMax: annualSalaryMax,
       salaryCurrency: salaryCurrency,
@@ -113,11 +120,12 @@ const updateJob = async (req, res) => {
       {
         $set: {
           jobDescription: req.body.jobDescription,
-          pubDate: req.body.pubDate,
           jobGeo: req.body.jobGeo,
-          jobExcerpt: req.body.jobExcerpt,
+          jobLevel: req.body.jobLevel,
           jobTitle: req.body.jobTitle,
           url: req.body.url,
+          annualSalaryMin: req.body.annualSalaryMin,
+          annualSalaryMax: req.body.annualSalaryMax,
         },
       },
       { new: true }

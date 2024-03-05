@@ -13,10 +13,11 @@ const adminRoutes = require("./routes/adminRoutes");
 const adminAuthRoutes = require("./routes/adminAuth");
 const { adminRegister } = require("./controllers/adminAuth");
 const protect = require("./middlewares/auth");
-const { isUser } = require("./middlewares/userType");
+const { isUser, isAdmin } = require("./middlewares/userType");
 const helmet = require("helmet");
 const JobsData = require("./models/jobSchema");
 const fetchapi = require("./utils/api");
+const { addJob } = require("./controllers/jobs");
 
 //configuration:
 
@@ -54,6 +55,13 @@ app.post(
   applyJob
 );
 app.post("/api/admin/auth/register", upload.single("file"), adminRegister);
+app.post(
+  "/api/admin/add",
+  protect,
+  isAdmin,
+  upload.single("companyLogo"),
+  addJob
+);
 
 //Routes
 
@@ -67,14 +75,7 @@ app.use("/api/admin/auth", adminAuthRoutes);
 const PORT = process.env.PORT || 5701;
 
 //Database Connection
-// fetchapi();
 connectDB();
-// const delteJob = async () => {
-//   const result = await JobsData.deleteMany();
-//   return result;
-// };
-
-// delteJob();
 
 //Creating express server
 
