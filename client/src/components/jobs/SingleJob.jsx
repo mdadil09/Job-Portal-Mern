@@ -118,7 +118,7 @@ const SingleJob = () => {
                 </div>
               </div>
               <div className="single-job-apply">
-                <Link to="/apply" className="single-apply-now">
+                <Link to={`/apply/${_id}`} className="single-apply-now">
                   Apply
                 </Link>
               </div>

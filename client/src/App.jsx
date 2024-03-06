@@ -15,6 +15,7 @@ import ApplyJobs from "./components/jobs/ApplyJobs";
 import AdminRegister from "./pages/AdminRegister";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
+import ProtectedRoutes from "./components/Auth/ProtectedRoutes";
 
 function App() {
   return (
@@ -23,13 +24,15 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/jobs" element={<ExploreJobs />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Register />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route element={<ProtectedRoutes />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/adminDashboard" element={<AdminDashboard />} />
+          <Route path="/apply/:id" element={<ApplyJobs />} />
+        </Route>
         <Route path="/singlejob/:id" element={<SingleJob />} />
-        <Route path="/apply/:id" element={<ApplyJobs />} />
+        <Route path="/signup" element={<Register />} />
         <Route path="/adminSignup" element={<AdminRegister />} />
         <Route path="/adminSignin" element={<AdminLogin />} />
-        <Route path="/adminDashboard" element={<AdminDashboard />} />
       </Routes>
       <Footer />
     </>

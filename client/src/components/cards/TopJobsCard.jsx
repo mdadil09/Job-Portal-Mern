@@ -10,8 +10,6 @@ const TopJobsCard = ({ jobs }) => {
     .filter((item) => item.annualSalaryMax >= 100000)
     .slice(0, 6);
 
-  console.log(topJobs);
-
   return (
     <div className="top-jobs-container">
       <div className="top-jobs-upper">

@@ -55,7 +55,7 @@ const NavbarGlobal = () => {
                 className="lgn-btn"
                 to={user ? "/adminDashboard" : "/adminSignup"}
               >
-                {user ? "For Business" : "Post Your Job"}
+                {user ? "Post Your Job" : "For Business"}
               </Link>
             )}
           </li>

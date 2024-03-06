@@ -24,8 +24,6 @@ const Navbar = () => {
     );
   };
 
-  console.log(user);
-
   return (
     <div className="navbar">
       <Link to="/" className="logo">
@@ -56,7 +54,7 @@ const Navbar = () => {
                 className="lgn-btn"
                 to={user ? "/adminDashboard" : "/adminSignup"}
               >
-                {user ? "For Business" : "Post Your Job"}
+                {user ? "Post Your Job" : "For Business"}
               </Link>
             )}
           </li>

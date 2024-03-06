@@ -2315,6 +2315,7 @@ th {
 .job-row-1 {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .add-input-group {
@@ -2373,11 +2374,13 @@ th {
 .job-row-2 {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .job-row-3 {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .add-input-group textarea {
@@ -2398,6 +2401,7 @@ th {
 .job-row-5 {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .add-next-btn {
@@ -2415,4 +2419,21 @@ th {
 
 .add-next-btn:hover {
   background-color: #0056b3;
+}
+
+@media only screen and (max-width: 768px) {
+  .add-input-group textarea {
+    width: 80vw;
+    height: 100px;
+    height: 50px;
+  }
+
+  .add-input-group input {
+    width: 80vw;
+    font-size: 12px;
+  }
+
+  .input-group-file .label {
+    width: 65vw;
+  }
 }

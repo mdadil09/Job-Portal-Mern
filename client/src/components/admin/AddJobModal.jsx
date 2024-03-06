@@ -98,6 +98,7 @@ const AddJobModal = ({ modalIsOpen, closeModal }) => {
       style={customStyles}
       contentLabel="Example Modal"
       portalClassName="modal"
+      // className="add-modal"
     >
       <div className="add-form-container">
         <div className="add-form-heading">
